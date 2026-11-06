@@ -1,4 +1,4 @@
-const CACHE='hyemin-knitting-v1';
+const CACHE='hyemin-knitting-v2';
 const FILES=['./','./index.html','./style.css','./data.js','./app.js','./icon.svg','./icon.png','./manifest.webmanifest'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('hyemin-knitting-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
